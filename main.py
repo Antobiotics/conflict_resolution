@@ -15,7 +15,7 @@ DISCOVERED = soco.discover()
 def set_volume(args):
     for zone in DISCOVERED:
         if zone.volume > 50:
- 		    zone.play_uri(NORAH_JONES)
+            zone.play_uri(NORAH_JONES)
         zone.volume = args.volume
         logger.info("%s's volume set to: %s" % (zone.player_name, args.volume))
 
