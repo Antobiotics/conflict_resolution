@@ -7,12 +7,15 @@ import soco
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 logger = logging.getLogger('conflict resolution')
 
+NORAH_JONES = "https://open.spotify.com/track/6ybViy2qrO9sIi41EgRJgx?si=BOMAiqYwSUyKxN0WTbKP8g"
 
 DISCOVERED = soco.discover()
 
 
 def set_volume(args):
     for zone in DISCOVERED:
+        if zone.volume > 50:
+            zone.play_uri(NORAH_JONES)
         zone.volume = args.volume
         logger.info("%s's volume set to: %s" % (zone.player_name, args.volume))
 
